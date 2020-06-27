@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .Slideshow{
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+    .MySlide{
+      display: none;
+    }
+    .prev, .next{
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px; /*Thụt vào hai bên từ khung của đối tượng cha */
+      color: rgb(157, 245, 179);
+      font-weight: bold;
+      font-size: 40px;
+      transition: 0.6s ease; /*Rê chuột vào thì khung nút từ từ hiện lên*/
+      border-radius: 13px 0 0 13px;
+      user-select: none; /*Ngăn không bôi đen văn bản(< và >)*/
+    }
+    .next{
+      right: 0;
+      border-radius: 0 13px 13px 0;
+    }
+    .prev:hover, .next:hover{
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .btn{
+      cursor: pointer;
+      height: 35px;
+      width: 35px;
+      margin: 0 12px;
+      background-color: #00f7ff;
+      border-radius: 50%;
+    }
+    .active, .button:hover{
+      background-color: lawngreen;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="Slideshow">
+    <div class="MySlide">
+      <img src="\img\FUNiX-International-logo.png" style="width: 100%;">
+    </div>
+    <div class="MySlide">
+      <img src="\img\FUNiX-10nguyentac-slide1.png" style="width: 100%;">
+    </div>
+    <div class="MySlide">
+      <img src="\img\funix-bai-dang-1024x620.jpg" style="width: 100%;">
+    </div>
+    <div class="MySlide">
+      <img src="\img\xisotop-1573806274.jpg" style="width: 100%;">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  <div style="text-align: center;">
+    <button class="btn active" onclick="currentSlide(1)">1</button>
+    <button class="btn" onclick="currentSlide(2)">2</button>
+    <button class="btn" onclick="currentSlide(3)">3</button>
+    <button class="btn" onclick="currentSlide(4)">4</button>
+  </div>
+
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n){
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n){
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n){
+      // get curent active slide navigation button by class name "active"
+      var previousSlide = document.getElementsByClassName("active")[0].innerHTML;
+
+      var slides = document.getElementsByClassName("MySlide");
+      var button = document.getElementsByClassName("btn");
+
+      if(n > slides.length){slideIndex = 1}
+      if(n < 1){slideIndex = slides.length}
+
+      for(var i = 0; i < slides.length; i++){
+        slides[i].style.display = "none";
+      }
+
+      // set last active slide navigation button to be deactive by ommit class name "active"
+      button[Number(previousSlide) - 1].className = "btn";
+      // set current active slide navigation button by add class name "active" 
+      button[slideIndex - 1].className = "btn active";
+      slides[slideIndex-1].style.display = "block";
+    }
+  </script>
+</body>
+</html>
