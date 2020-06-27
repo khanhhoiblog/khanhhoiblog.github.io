@@ -1,7 +1,29 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+ul, #main-image{
+    float: left;
+    cursor: pointer;
+}
+#main-image img{
+    margin-left: 30px;
+}
+ul li{
+    list-style: none;
+}
+ul li img{
+    width: 100px;
+    cursor: pointer;
+    margin-top: 20px;
+}
 .Slideshow{
     max-width: 1000px;
     position: relative;
     margin: auto;
+  }
+  img{
+      width: 600px;
   }
   .MySlide{
     display: none;
@@ -21,7 +43,7 @@
     user-select: none; /*Ngăn không bôi đen văn bản(< và >)*/
   }
   .next{
-    right: 0;
+    right: 400px;
     border-radius: 0 13px 13px 0;
   }
   .prev:hover, .next:hover{
@@ -34,6 +56,11 @@
     margin: 0 12px;
     background-color: #00f7ff;
     border-radius: 50%;
+  }
+  .but{
+    left: 25%;
+    position: absolute;
+    text-align: center;
   }
   .active, .button:hover{
     background-color: lawngreen;
