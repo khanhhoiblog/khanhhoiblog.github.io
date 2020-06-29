@@ -16,6 +16,7 @@ ul li img{
     width: 100px;
     cursor: pointer;
     margin-top: 20px;
+    user-select: none;
 }
 .Slideshow{
     max-width: 1000px;
