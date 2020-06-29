@@ -1,6 +1,7 @@
 body{
     margin: 0px;
     padding: 0px;
+    user-select: none;
 }
 ul, #main-image{
     float: left;
