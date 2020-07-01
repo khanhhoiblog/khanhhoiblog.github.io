@@ -30,7 +30,3 @@ function showSlides(n){
   slides[slideIndex-1].style.display = "block";
 }
 
-function changeImage(id){
-    let imgPath = document.getElementById(id).getAttribute("src");
-    document.getElementById("main-img").setAttribute("src", imgPath);
-}

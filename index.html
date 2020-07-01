@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="./css/style.css" />
-  <title>Khánh Hội Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        body{
+            background: #f1f1f1;
+            user-select: none;
+            font-family: sans-serif;
+        }
+        nav{
+            background: #0082e6;
+            height: 80px;
+            width: 100%;
+        }
+        label.logo{
+            color: white;
+            font-size: 35px;
+            line-height: 80px;
+            padding: 0 100px;
+            font-weight: bold;
+        }
+        nav ul{
+            float: right;
+            margin-right: 20px;
+        }
+        nav ul li{
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 5px;
+        }
+        nav ul li a{
+            padding: 10px;
+            color: #FFF;
+            font-size: 17px;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        a.active, a:hover{
+            background: rgba(0, 221, 255, .9);
+            transition: .5s;
+        }
+    </style>
 </head>
 <body>
-  <div class="Slideshow">
-    <div class="MySlide">
-      <img src="./img/FUNiX-International-logo.png">
+    <div class="container">
+        <nav class="menu">
+            <label class="logo">Mộc Hải Minh</label>
+            <ul class="tab">
+                <li><a class="tab-item active" href="ngaythanghientai.html">Trang Chủ</a></li>
+                <li><a class="tab-item" href="previewProduct.html">Sản Phẩm</a></li>
+                <li><a class="tab-item" href="donghodemnguoc.html">Giới Thiệu</a></li>
+                <li><a class="tab-item" href="product.html">Thiết Kế Nội Thất</a></li>
+                <li><a class="tab-item" href="slideImage.html">Tin Tức</a></li>
+                <li><a class="tab-item" href="divquangcao.html">Liên Hệ</a></li>
+            </ul>
+        </nav>
+        
     </div>
-    <div class="MySlide">
-      <img src="./img/FUNiX-10nguyentac-slide1.png">
-    </div>
-    <div class="MySlide">
-      <img src="./img/funix-bai-dang-1024x620.jpg">
-    </div>
-    <div class="MySlide">
-      <img src="./img/xisotop-1573806274.jpg">
-    </div>
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-  <br>
-  <div class="but">
-    <button class="btn active" onclick="currentSlide(1)">1</button>
-    <button class="btn" onclick="currentSlide(2)">2</button>
-    <button class="btn" onclick="currentSlide(3)">3</button>
-    <button class="btn" onclick="currentSlide(4)">4</button>
-  </div>
-  <br>
-  <br>
-  <div>
-    <ul>
-      <li><img src="./img/FUNiX-International-logo.png" onclick="changeImage('one')" id="one" /></li>
-      <li><img src="./img/FUNiX-10nguyentac-slide1.png" onclick="changeImage('two')" id="two" /></li>
-      <li><img src="./img/funix-bai-dang-1024x620.jpg" onclick="changeImage('three')" id="three" /></li>
-      <li><img src="./img/xisotop-1573806274.jpg" onclick="changeImage('four')" id="four" /></li>
-    </ul>
-    <div id="main-image">
-      <img src="./img/FUNiX-International-logo.png" id="main-img"/>
-    </div>
-  </div>
-  <div class="container">
-    <h1>Danh sách sản phẩm</h1>
-    <ul class="tab">
-      <li id = "populer" class="tab-item">Phổ Biến</li>
-      <li id = "new" class="tab-item">Mới Nhất</li>
-      <li id = "best-sale" class="tab-item">Bán Chạy</li>
-    </ul>
-    <div class="animation">
-      <ul class="product-list">
-        <li><img src="./img/FUNiX-International-logo.png" /></li>
-        <li><img src="./img/FUNiX-10nguyentac-slide1.png" /></li>
-        <li><img src="./img/funix-bai-dang-1024x620.jpg" /></li>
-        <li><img src="./img/xisotop-1573806274.jpg" /></li>
-        <li><img src="./img/FUNiX-International-logo.png" /></li>
-        <li><img src="./img/funix-bai-dang-1024x620.jpg" /></li>
-      </ul>
-    </div>
-  </div>
-  <script src="./js/javascript.js"></script>
 </body>
 </html>

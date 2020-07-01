@@ -1,0 +1,21 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+ul, #main-image{
+    float: left;
+    cursor: pointer;
+}
+#main-image img{
+    margin-left: 30px;
+    user-select: none;
+
+}
+ul li{
+    list-style: none;
+}
+ul li img{
+    width: 100px;
+    cursor: pointer;
+    margin-top: 20px;
+}

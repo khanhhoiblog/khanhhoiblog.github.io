@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div quảng cáo</title>
+    <style>
+        #mainqc{
+            position: fixed;
+            right: 1px;
+            bottom: 0;
+            width: 300px;
+        }
+        #tatqc, #moqc{
+            background: teal;
+            width: 100%;
+        }
+        #moqc{
+            display: none;
+        }
+        img{
+            width: 300px;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+            font-family: sans-serif;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id = "mainqc">
+        <div id = "tatqc">
+            <a href="#" onclick="hide()">Tắt quảng cáo</a>
+        </div>
+        <div id = "picqc">
+            <img src="./img/FUNiX-International-logo.png">
+        </div>
+        <div id = "moqc">
+            <a href="#" onclick="show()">Mở quảng cáo</a>
+        </div>
+    </div>
+    <script>
+        function hide(){
+            document.getElementById("tatqc").style.display = "none";
+            document.getElementById("picqc").style.display = "none";
+            document.getElementById("moqc").style.display = "block";
+        }
+        function show(){
+            document.getElementById("tatqc").style.display = "block";
+            document.getElementById("picqc").style.display = "block";
+            document.getElementById("moqc").style.display = "none";
+        }
+    </script>
+</body>
+</html>

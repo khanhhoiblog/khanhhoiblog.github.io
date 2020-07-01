@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng hồ</title>
+    <style>
+        #donghodemnguoc{
+            font-family: sans-serif;
+            font-size: 50px;
+            font-weight: bold;
+            color: red;
+            margin: 100px auto;
+            text-align: center;
+            user-select: none;
+        }
+        #dongho{
+            background: #c50909;
+            width: 250px;
+            font-family: sans-serif;
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            margin: 100px auto;
+            text-align: center;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id = "dongho"></div>
+    <div id ="donghodemnguoc"></div>
+    <script>
+        var so = 100;
+        function demNguoc(){
+            so--;
+            if (so != 0){
+                document.getElementById("donghodemnguoc").innerHTML = so;
+                setTimeout("demNguoc()", 1000);
+            }
+            else{
+                // document.getElementById("dongho").innerHTML = "Hết thời gian";
+                window.location.href = "https://dogotamphuc.com";
+            }
+        }
+        demNguoc();
+        function dongho(){
+            var time = new Date();
+            var gio = time.getHours();
+            var phut = time.getMinutes();
+            var giay = time.getSeconds();
+            if(gio < 10){
+                gio = "0" + gio;
+            }
+            if(phut < 10){
+                phut = "0" + phut;
+            }
+            if(giay < 10){
+                giay = "0" + giay;
+            }
+            document.getElementById("dongho").innerHTML = gio +":" + phut +":" + giay;
+            setTimeout("dongho()", 1000);
+        }
+        dongho();
+    </script>
+</body>
+</html>

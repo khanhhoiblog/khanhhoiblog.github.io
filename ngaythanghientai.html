@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngày tháng năm hiện tại</title>
+    <style>
+        #date{
+            width: 800px;
+            margin: 50px auto;
+            text-align: center;
+            background: teal;
+            padding: 20px;
+            font-family: sans-serif;
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id = "date"></div>
+    <script>
+        var d = new Date();
+        var thang = d.getMonth() + 1;
+        var Thu = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
+        document.getElementById("date").innerHTML = "Hôm nay, "  + Thu[d.getDay()] + " ngày " + d.getDate() + " tháng " + thang + " Năm " + d.getFullYear();
+    </script>
+</body>
+</html>
