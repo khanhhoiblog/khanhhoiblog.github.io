@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu 1</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        body{
+            margin : 0;
+            padding : 0;
+            font-family: sans-serif;
+            background: #f1f1f1;
+            user-select: none;
+        }
+        nav{
+            width: 100%;
+            text-align: center;
+            height: 50px;
+            background: rgb(0, 89, 255);
+            padding-right: 50px;
+        }
+        label.logo{
+            color: white;
+            font-size: 35px;
+            line-height: 40px;
+            padding: 0;
+            margin: 0;
+            font-weight: bold;
+        }
+        ul{
+            float: right;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        ul li{
+            float: left;
+            width: 150px;
+            height: 40px;
+            background: rgb(0, 89, 255);
+            opacity: .8;
+            line-height: 50px;
+            text-align: center;
+            font-size: 14px;
+            margin-right: 0; /*menu cách nhau 2px(trang chủ cách giới thiệu) */
+        }
+        ul li a{
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: block;
+        }
+        ul li a:hover{
+            background: green;
+        }
+        ul.sub-menu li{
+            display: none;
+        }
+        li:hover > ul.sub-menu li{
+            display: block;
+        }
+        li:hover > ul.sub-menu.animate{
+            perspective: 1000px;
+        }
+        li:hover > ul.sub-menu.animate li{
+            transform-origin: top center;
+            opacity: 0;
+        }
+        li:hover > ul.sub-menu.animate li:nth-child(1){
+            animation-name: animate;
+            animation-delay: -150ms;
+            animation-duration: 300ms;
+            animation-fill-mode: forwards;
+        }
+        li:hover > ul.sub-menu.animate li:nth-child(2){
+            animation-name: animate;
+            animation-delay: 0ms;
+            animation-duration: 300ms;
+            animation-fill-mode: forwards;
+        }
+        li:hover > ul.sub-menu.animate li:nth-child(3){
+            animation-name: animate;
+            animation-delay: 150ms;
+            animation-duration: 300ms;
+            animation-fill-mode: forwards;
+        }
+        li:hover > ul.sub-menu.animate li:nth-child(4){
+            animation-name: animate;
+            animation-delay: 300ms;
+            animation-duration: 300ms;
+            animation-fill-mode: forwards;
+        }
+        li:hover > ul.sub-menu.animate li:nth-child(5){
+            animation-name: animate;
+            animation-delay: 450ms;
+            animation-duration: 300ms;
+            animation-fill-mode: forwards;
+        }
+        @keyframes animate {
+            0%{
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            70%{
+                transform: translateX(20px);
+            }
+            100%{
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav>
+        <label class="logo">Mộc Hải Minh</label>
+        <ul>
+            <li><a href="donghodemnguoc.html">Trang Chủ</a>
+            </li>
+            <li><a href="divquangcao.html">Giới Thiệu</a>
+                <ul class="sub-menu animate">
+                    <li><a href="slideImage.html">Slide Image</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                </ul>
+            </li>
+            <li><a href="formlogin.html">Sản Phẩm</a>
+                <ul class="sub-menu animate">
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                </ul>
+            </li>
+            <li><a href="ngaythanghientai.html">Thiết Kế Nội Thất</a>
+                <ul class="sub-menu animate">
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                </ul>
+            </li>
+            <li><a href="previewProduct.html">Tin Tức</a>
+                <ul class="sub-menu animate">
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                </ul>
+            </li>
+            <li><a href="product.html">Liên Hệ</a>
+                <ul class="sub-menu animate">
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Giới Thiệu</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    </div>
+</body>
+</html>
