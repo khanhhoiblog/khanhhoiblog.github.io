@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            box-sizing: border-box;
+        }
+        body{
+            background: #f2f2f2;
+        }
+        nav{
+            background: #1b1b1b;
+        }
+        nav:after{
+            content: '';
+            clear: both;
+            display: table;
+        }
+        nav .logo{
+            float: left;
+            font-size: 27px;
+            line-height: 70px;
+            font-weight: 600;
+            color: white;
+            padding-left: 60px;
+        }
+        nav ul{
+            float: right;
+            margin-right: 40px;
+            list-style: none;
+            position: relative;
+        }
+        nav ul li{
+            float: left;
+            background: #1b1b1b;
+            margin: 0 5px;
+        }
+        nav ul li a{
+            color: white;
+            text-decoration: none;
+            line-height: 70px;
+            padding: 8px 15px;
+            font-size: 18px;
+        }
+        nav ul li a:hover{
+            color: cyan;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #33ffff,
+                        0 0 10px #66ffff;
+        }
+        ul ul li a:hover{
+            box-shadow: none;
+        }
+        nav ul ul{
+            position: absolute;
+            top: 90px;
+            border-top: 3px ridge cyan;
+            visibility: hidden;
+            transition: top .3s;
+        }
+        nav ul ul ul{
+            border-top: none;
+        }
+        nav ul li:hover > ul{
+            visibility: visible;
+            top: 70px;
+        }
+        nav ul ul li{
+            margin: 0;
+            width: 150px;
+            position: relative;
+            float: none;
+            border-bottom: 1px solid rgba(0,0,0,0.3);
+        }
+        nav ul ul li a{
+            line-height: 50px;
+        }
+        nav ul ul ul li{
+            position: relative;
+            top: -60px;
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav>
+            <label class="logo">Logo</label>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Sản phẩm</a>
+                    <ul>
+                        <li><a href="#">Sản phẩm 1</a></li>
+                        <li><a href="#">Sản phẩm 2</a></li>
+                        <li><a href="#">Sản phẩm 3</a></li>
+                        <li><a href="#">Sản phẩm 4</a></li>
+                        <li><a href="#">Sản phẩm 5</a>
+                            <ul>
+                                <li><a href="#">Phần a</a></li>
+                                <li><a href="#">Phần b</a></li>
+                                <li><a href="#">Phần c</a></li>
+                                <li><a href="#">Phần d</a></li>
+                                <li><a href="#">Phần e</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Sản phẩm 6</a>
+                            <ul>
+                                <li><a href="#">Phần a</a></li>
+                                <li><a href="#">Phần b</a></li>
+                                <li><a href="#">Phần c</a></li>
+                                <li><a href="#">Phần d</a></li>
+                                <li><a href="#">Phần e</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Sản phẩm 7</a>
+                            <ul>
+                                <li><a href="#">Phần a</a></li>
+                                <li><a href="#">Phần b</a></li>
+                                <li><a href="#">Phần c</a></li>
+                                <li><a href="#">Phần d</a></li>
+                                <li><a href="#">Phần e</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Menu One</a></li>
+                <li><a href="#">Sản phẩm</a>
+                    <ul>
+                        <li><a href="#">Sản phẩm 1</a>
+                            <ul>
+                                <li><a href="#">Phần a</a></li>
+                                <li><a href="#">Phần b</a></li>
+                                <li><a href="#">Phần c</a></li>
+                                <li><a href="#">Phần d</a></li>
+                                <li><a href="#">Phần e</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Menu Two</a></li>
+                <li><a href="#">Menu Three</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

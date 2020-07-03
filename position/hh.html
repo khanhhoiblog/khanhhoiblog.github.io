@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.menu{
+				border: 2px black dotted;
+				display: inline-block;
+				}
+
+				.sub{
+				display: inline-block;
+				background: red;
+				width: 100px;
+				height: 100px;
+				}
+				.sub1{
+					display: inline-block;
+					background: red;
+					width: 100px;
+					height: 100px;
+					margin-bottom: 10px;
+					position: relative;
+				}
+
+				#two{
+					top: 20px;
+  					left: 120px;
+					
+					background: green;
+					position: absolute;
+					
+				}
+				.sub1, .sub2{
+					display: none;
+				}
+				.sub1:hover, .sub:hover{
+					background: teal;
+				}
+				.sub:hover .sub1{
+					display: block;
+				}
+	</style>
+</head>
+<body>
+	<div>
+		<ul class="menu">
+			<li class="sub" id="one">One</li>
+			<li class="sub" id="two">Two
+				<ul>
+					<li class="sub1" id="five">Five</li>
+					<li class="sub1" id="five">Five</li>
+					<li class="sub1" id="five">Five</li>
+					<li class="sub1" id="five">Five</li>
+				</ul>
+			</li>
+			<li class="sub" id="three">Three</li>
+			<li class="sub" id="four">Four</li>
+		</ul>
+		
+	</ul>
+</body>
+</html>
