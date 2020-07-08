@@ -8,27 +8,25 @@
     <script>
 
         // [1] Load lên các thành phần cần thiết
-        
+        window.fbAsyncInit = function() {
+            FB.init({
+            appId      : '1375688515783019',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v7.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+            
+        };
 
-    window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1375688515783019',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v7.0'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
 
 
         // [2] Xử lý trạng thái đăng nhập
@@ -46,11 +44,8 @@
                 ShowLoginButton();
             }
         }
-
         // [3] Yêu cầu đăng nhập FB
-        function RequestLoginFB() {
-            window.location = 'https://graph.facebook.com/oauth/authorize?client_id=1375688515783019&scope=public_profile,email,user_likes&redirect_uri=https://khanhhoiblog.github.io/';
-        }
+        
 
         // [4] Hiển thị nút đăng nhập
         function ShowLoginButton() {
@@ -71,22 +66,23 @@
         }
 
         function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
+            FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
 }
     </script>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=1375688515783019&autoLogAppEvents=1" nonce="Zdw2g6Eo"></script>
-
-
+    <!-- NÚT ĐĂNG NHẬP -->
+    <input id="btb" type="button" value="ĐĂNG NHẬP" onclick="RequestLoginFB()" style="display:none" />
+    <p id="lbl" style="display:none">BẠN ĐÃ ĐĂNG NHẬP THÀNH CÔNG!</p>
+    <br />
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=1375688515783019&autoLogAppEvents=1" nonce="Zdw2g6Eo"></script>
 
     <!-- NÚT ĐĂNG NHẬP -->
-    
-<fb:login-button 
-scope="public_profile,email"
-onlogin="checkLoginState();">
-</fb:login-button>
+    <fb:login-button 
+        scope="public_profile,email"
+        onlogin="checkLoginState();">
+    </fb:login-button>
 
     <!-- HIỂN THỊ NÚT LUIKE -->
     <div class="fb-like" data-href="https://khanhhoiblog.github.io/" data-layout="box_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
