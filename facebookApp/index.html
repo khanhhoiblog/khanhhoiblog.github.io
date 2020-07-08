@@ -45,13 +45,13 @@
             else if (response.status === 'not_authorized') {
                 //Chạy hàm [4] Hiển thị nút đăng nhập
                 ShowLoginButton();
-                document.getElementsByClassName("fb-login-button").setAttribute('style','display:block');
+                document.getElementsByClassName("fb-login-button").style.display = "block";
             }
             // Người dùng chưa đăng nhập FB
             else {
                 //Chạy hàm [4] Hiển thị nút đăng nhập
                 ShowLoginButton();
-                document.getElementsByClassName("fb-login-button").setAttribute('style','display:block');
+                document.getElementsByClassName("fb-login-button").style.display = "block";
             }
         }
         // [3] Yêu cầu đăng nhập FB
