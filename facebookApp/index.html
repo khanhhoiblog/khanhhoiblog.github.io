@@ -60,9 +60,8 @@
             document.getElementById('btb').setAttribute('style', 'display:none');            
             FB.api('/me', function (response) {
                 var name = response.name;
-                var email = response.email;
                 var id = response.id;
-                document.getElementById('lbl').innerHTML = 'Tên=' + name + ' | email=' + email + ' | id=' + id;
+                document.getElementById('lbl').innerHTML = 'Tên=' + name + ' | id=' + id;
                 document.getElementById('lbl').setAttribute('style', 'display:block');
             });
         }
