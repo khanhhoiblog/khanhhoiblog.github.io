@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fb:login-button size="large" scope="public_profile,email" returnscopes="true" onlogin="checkLoginState();">Login to Facebook</fb:login-button>
+    <div id="spinner" style="background: #4267b2; border-radius: 5px; color: white; height: 40px; text-align: center; width: 250px;">
+        Loading
+        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-use-continue-as="true" data-onlogin="checkLoginState();">
+    </div>
+    <button id="share-button" type="button">Share</button>
+    <button id="like-button" type="button">Like</button>
+    <button id="send-button" type="button">Send</button>
+    <script>
+        //Load the JavaScript SDK asynchronously
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        window.fbAsyncInit = function () {
+    //FB JavaScript SDK configuration and setup
+    FB.init({
+        appId: '1375688515783019', //FB App ID
+        cookie: true,  //enable cookies to allow the server to access the session
+        xfbml: true,  //parse social plugins on this page
+        version: 'v3.2' //use this graph api version 3.2
+    });
+}
+
+document.getElementById('share-button').addEventListener('click', function () {
+    FB.ui({
+        method: 'share',
+        href: window.location.href
+    }, function (response) {
+        if (!response) {
+            console.log('User did not share the page.');
+        }
+        else {
+            console.log('User shared the page!');
+        }
+    });
+});
+
+document.getElementById('like-button').addEventListener('click', function () {
+    FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.likes',
+        action_properties: JSON.stringify({
+            object: window.location.href
+        })
+    }, function (response) {
+        if (!response) {
+            console.log('User did not share the page.');
+        }
+        else {
+            console.log('User shared the page!');
+        }
+    });
+});
+
+document.getElementById('send-button').addEventListener('click', function () {
+    FB.ui({
+        method: 'send',
+        link: window.location.href
+    }, function (response) {
+        if (!response) {
+            console.log('User did not share the page.');
+        }
+        else {
+            console.log('User shared the page!');
+        }
+    });
+});
+
+FB.getLoginStatus(function (response) {
+    console.log(response);
+});
+
+var finished_rendering = function () {
+        console.log("finished rendering plugins");
+        var spinner = document.getElementById("spinner");
+        spinner.removeAttribute("style");
+        spinner.removeChild(spinner.childNodes[0]);
+    };
+    FB.Event.subscribe('xfbml.render', finished_rendering);
+
+    FB.login(function (response) {
+    statusChangeCallback(response);
+}, {
+    scope: 'email',
+    return_scopes: true
+});
+
+function checkLoginState() {
+    FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+    });
+};
+
+if (response.status === 'connected') {
+    if (response.authResponse && response.authResponse.grantedScopes)
+        console.log(response.authResponse.grantedScopes);
+}
+
+function statusChangeCallback(response, loggedInCallback) {
+    console.log('running statusChangeCallback...');
+    console.log(response);
+
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    if (response.status === 'connected') {
+        console.log('connected!');
+        //since we're connected, we can now make API calls for the user
+        if (loggedInCallback) loggedInCallback();
+    }
+    else {
+        console.log('not connected');
+        //The person is not logged into your app or we are unable to tell.
+        //Since the user isn't connected, you could show a Facebook login button or
+        //display a notice to the user on your site.
+    }
+}
+
+FB.api('/me', function (response) {
+    console.log('Successful login for: ' + response.name);
+});
+
+FB.login(function (response) {
+    if (response.authResponse && response.authResponse.grantedScopes && response.authResponse.grantedScopes.indexOf('user_likes') !== -1) {
+        FB.api('/me/likes', 'get', { fields: 'id,name,about,created_time,category' }, function (response) {
+            console.log(response);
+        });
+    }
+},
+    {
+        scope: 'email,user_likes',
+        return_scopes: true
+    });
+    </script>
+</body>
+</html>

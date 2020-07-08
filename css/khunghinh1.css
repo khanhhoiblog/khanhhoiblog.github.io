@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html,body{
+    display: grid;
+    height: 100%;
+    place-items: center;
+    background: #000;
+    text-align: center;
+  }
+  .center{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+  }
+  .outer{
+    position: relative;
+    margin: 0 50px;
+    background: #111;
+  }
+  .button{
+    height: 350px;
+    width: 350px;
+    border-radius: 10px;
+  }
+  .outer div, .outer span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .outer div{
+    background: #111;
+    outline: none;
+    border: none;
+    z-index: 9;
+  }
+  .button div{
+    height: 270px;
+    width: 220px;
+  }
+  .outer span{
+    height: 100%;
+    width: 100%;
+    background: inherit;
+    border-radius: 10px;
+  }
+  .outer span:nth-child(1){
+    filter: blur(7px);
+  }
+  .outer span:nth-child(2){
+    filter: blur(14px);
+  }
+  .outer{
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    animation: rotate 1.5s linear infinite;
+  }
+  @keyframes rotate {
+    0%{
+      filter: hue-rotate(0deg);
+    }
+    100%{
+      filter: hue-rotate(360deg);
+    }
+  }
+  .zero{
+    position: absolute;
+    display: flex;
+    width: 350px;
+    height: 350px;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../img/patten-wood.jpg");
+    background-size: 400px;
+    background-repeat: no-repeat; 
+   border-radius: 10px;
+}
+.zero:before{
+    position: absolute;
+    content: '';
+    width: 300px;
+    height: 300px;
+    background-image: url("../img/patten-wood.jpg");
+    background-size: 300px;
+    background-repeat: no-repeat; 
+    box-shadow: inset -3px -3px 7px #ffffff73,
+                inset 3px 3px 5px rgba(94,104,121,0.288);          
+}
+.zero:after{
+    position: absolute;
+    content: '';
+    width: 250px;
+    height: 250px;
+    background-image: url("../img/patten-wood.jpg");
+    background-size: 300px;
+    background-repeat: no-repeat; 
+    box-shadow: inset -1px -1px 5px #ffffff73,
+                inset 1px 1px 3px rgba(94,104,121,0.288);
+}
+.one{
+    z-index: 3;
+    position: absolute;
+    content: '';
+    width: 250px;
+    height: 250px;
+    background: transparent;
+    box-shadow: inset -3px -3px 15px #ffffff73,
+                inset 3px 3px 13px rgba(94,104,121,0.288);
+}
+.zero .two{
+    height: 240px;
+    width: 240px;
+    z-index: 2;
+    position: relative;
+    display: flex;
+}
+img{
+    height: 240px;
+    width: 240px;
+    z-index: 2;
+    position: absolute;
+}
+  
