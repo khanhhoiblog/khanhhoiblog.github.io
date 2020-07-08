@@ -16,7 +16,7 @@
             version    : 'v7.0'
             });
             FB.AppEvents.logPageView();
-        };
+        }; 
         // Hàm gọi JavaScript SDK
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -26,6 +26,12 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
 
+        //Kiểm tra trạng thái hiện tại(xem đã login hay chưa)
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+        }
         // [2] Xử lý trạng thái đăng nhập
         function statusChangeCallback(response) {
             // Người dùng đã đăng nhập FB và đã đăng nhập vào ứng dụng
@@ -65,12 +71,7 @@
                 document.getElementById('lbl').setAttribute('style', 'display:block');
             });
         }
-
-        function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-        }
+        
     </script>
     
     <!-- NÚT ĐĂNG NHẬP -->
@@ -84,7 +85,7 @@
     <!-- NÚT ĐĂNG NHẬP -->
     <fb:login-button 
         scope="public_profile,email"
-        onlogin="checkLoginState();">
+        onlogin="checkLoginState();" style="display: none;">
     </fb:login-button>
     <br />
 
