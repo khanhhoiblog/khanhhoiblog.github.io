@@ -62,7 +62,7 @@
         }
 
         // [5] Chào mừng người dùng đã đăng nhập
-        function ShowWelcome() {
+        function ShowWelcome(){
             document.getElementById('btb').setAttribute('style', 'display:none');            
             FB.api('/me', function (response) {
                 var name = response.name;
@@ -83,7 +83,7 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=1375688515783019&autoLogAppEvents=1" nonce="Zdw2g6Eo"></script>
 
     <!-- NÚT ĐĂNG NHẬP -->
-    <fb:login-button id="btb"
+    <fb:login-button id='btb'
         scope="public_profile,email"
         onlogin="checkLoginState();" style="display: none;">
     </fb:login-button>
