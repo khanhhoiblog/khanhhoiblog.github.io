@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <fb:login-button size="large" scope="public_profile,email" returnscopes="true" onlogin="checkLoginState();">Login to Facebook</fb:login-button>
+    <!-- <fb:login-button size="large" scope="public_profile,email" returnscopes="true" onlogin="checkLoginState();">Login to Facebook</fb:login-button>
     <div id="spinner" style="background: #4267b2; border-radius: 5px; color: white; height: 40px; text-align: center; width: 250px;">
         Loading
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-use-continue-as="true" data-onlogin="checkLoginState();">
@@ -143,6 +143,10 @@ FB.login(function (response) {
         scope: 'email,user_likes',
         return_scopes: true
     });
-    </script>
+    </script> -->
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=1375688515783019&autoLogAppEvents=1" nonce="xl59Eztm"></script>
+
+<div class="fb-like" data-href="https://khanhhoiblog.github.io/" data-width="" data-layout="box_count" data-action="like" data-size="small" data-share="true"></div>
 </body>
 </html>
