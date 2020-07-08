@@ -63,7 +63,7 @@
 
         // [5] Chào mừng người dùng đã đăng nhập
         function ShowWelcome(){
-            document.getElementById('btb').setAttribute('style', 'display:none');            
+            document.getElementById('btb').setAttribute('style', 'display:block');            
             FB.api('/me', function (response) {
                 var name = response.name;
                 var id = response.id;
