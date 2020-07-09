@@ -45,7 +45,7 @@
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementsByClassName("fb-login-button").style.display = "block";
-      document.getElementById('status').innerHTML =
+      document.getElementById("status").innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
   }
@@ -58,8 +58,7 @@
 <div class="fb-login-button" data-max-rows="2" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="true" data-scope="public_profile,email"
     onlogin="checkLoginState()"></div>
 
-<div id="status">
-</div>
+<div id="status"></div>
 
 <!-- Load the JS SDK asynchronously -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
