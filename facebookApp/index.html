@@ -6,108 +6,60 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
+<script>
 
-        // [1] Load lên các thành phần cần thiết
-        window.fbAsyncInit = function() {
-            FB.init({
-            appId      : '1375688515783019',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v7.0'
-            });
-            FB.AppEvents.logPageView();
-        }; 
-        // Hàm gọi JavaScript SDK
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+  function statusChangeCallback(response) {  // Gọi bởi hàm FB.getLoginStatus().
+    if (response.status === 'connected') { 
+      testAPI();  
+    } else {                                
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this webpage.';
+    }
+  }
 
-        //Kiểm tra trạng thái hiện tại(xem đã login hay chưa)
-        function checkLoginState() {
-            FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-        }
-        // [2] Xử lý trạng thái đăng nhập
-        function statusChangeCallback(response) {
-            // Người dùng đã đăng nhập FB và đã đăng nhập vào ứng dụng
-            if (response.status === 'connected') {
-                //Chạy hàm [5] Chào mừng người dùng đã đăng nhập
-                ShowWelcome();
-                document.getElementById('two').setAttribute('style', 'display:none');
-            }
-            // Người dùng đã đăng nhập FB nhưng chưa đăng nhập ứng dụng
-            else if (response.status === 'not_authorized') {
-                //Chạy hàm [4] Hiển thị nút đăng nhập
-                ShowLoginButton();
-                document.getElementById('two').setAttribute('style', 'display:block');
-            }
-            // Người dùng chưa đăng nhập FB
-            else {
-                //Chạy hàm [4] Hiển thị nút đăng nhập
-                ShowLoginButton();
-                document.getElementById('two').setAttribute('style', 'display:block');
-            }
-        }
-        // [3] Yêu cầu đăng nhập FB
-        function RequestLoginFB() {
-            window.location = 'https://facebook.com';
-        }
 
-        // [4] Hiển thị nút đăng nhập
-        function ShowLoginButton() {
-            document.getElementById('btb').setAttribute('style', 'display:block');
-            document.getElementById('lbl').setAttribute('style', 'display:none');
-        }
+  function checkLoginState() {               // Gọi khi bấm nút đăng nhập
+    FB.getLoginStatus(function(response) { 
+      statusChangeCallback(response);
+    });
+  }
 
-        // [5] Chào mừng người dùng đã đăng nhập
-        function ShowWelcome(){
-            document.getElementById('btb').setAttribute('style', 'display:block');            
-            FB.api('/me', function (response) {
-                var name = response.name;
-                var id = response.id;
-                document.getElementById('lbl').innerHTML = 'Tên=' + name + ' | id=' + id;
-                document.getElementById('lbl').setAttribute('style', 'display:block');
-            });
-        }
-        
-    </script>
-    <div id="status">
-    </div>
-    
-    <!-- Load the JS SDK asynchronously -->
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-    
-    <!-- NÚT ĐĂNG NHẬP -->
-    <div class="fb-login-button" id="one" style="display: block;" data-max-rows="2" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="true" data-scope="public_profile,email"
-    onlogin="checkLoginState()"></div>
-    <p id='lbl' style="display:none">BẠN ĐÃ ĐĂNG NHẬP THÀNH CÔNG!</p>
-    <br />
-    <!-- Phân vùng các nút facbook-->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=1375688515783019&autoLogAppEvents=1" nonce="Zdw2g6Eo"></script>
 
-    <!-- NÚT ĐĂNG NHẬP -->
-    <div class="fb-login-button" id="two" style="display: block;" data-max-rows="2" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="true" data-scope="public_profile,email"
-         onlogin="checkLoginState()"></div>
-    <!-- <fb:login-button id='btb'
-        scope="public_profile,email"
-        onlogin="checkLoginState();" style="display: none;">
-    </fb:login-button> -->
-    <br />
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1375688515783019',
+      cookie     : true,                     // Cho phép cookie để cho phép máy chủ truy cập phiên.
+      xfbml      : true,                     // Phân tích các plugin xã hội trên trang web này.
+      version    : 'v7.0' 
+    });
 
-    <!-- HIỂN THỊ NÚT LIKE -->
-    <div class="fb-like" data-href="https://khanhhoiblog.github.io/" data-layout="box_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-    <br />
-    <!-- HIỂN THỊ PAGE -->
-    <div class="fb-page" data-href="https://www.facebook.com/thuvienlaptrinh" data-tabs="timeline" data-width="300" data-height="70" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/thuvienlaptrinh" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/thuvienlaptrinh">Thư Viện Lập Trình</a></blockquote></div>
-    <br />
-    <!-- COMMENT -->
-    <div class="fb-comments" data-href="https://khanhhoiblog.github.io/" data-numposts="10"></div>
+
+    FB.getLoginStatus(function(response) {   // Được gọi sau khi SDK SDK đã được khởi tạo.
+      statusChangeCallback(response);        // Trả về trạng thái đăng nhập.
+    });
+  };
+ 
+  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+
+</script>
+
+
+<!-- The JS SDK Login Button -->
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+
+<!-- Load the JS SDK asynchronously -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
 </html>
