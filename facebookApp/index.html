@@ -42,7 +42,7 @@
  
   function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
     FB.api('/me', function(response) {
-      document.getElementById('status').innerHTML = 'Cảm ơn đã đăng nhập, ' + response.name + '!';
+      document.getElementById('status').innerHTML = 'Xin chào, ' + response.name + '!';
     });
   }
 
@@ -56,7 +56,7 @@
 </script>
 <div id="status"></div>
 
-<!-- Load the JS SDK asynchronously -->
+<!-- Tải SDK không đồng bộ -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
 <!-- NÚT ĐĂNG NHẬP -->
