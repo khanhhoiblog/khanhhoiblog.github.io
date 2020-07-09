@@ -20,11 +20,11 @@
   }
 
 
-  function checkLoginState() {               // Gọi khi bấm nút đăng nhập(nút của Facebook)
-    FB.getLoginStatus(function(response) { 
-      statusChangeCallback(response);
-    });
-  }
+//   function checkLoginState() {               // Gọi khi bấm nút đăng nhập(nút của Facebook)
+//     FB.getLoginStatus(function(response) { 
+//       statusChangeCallback(response);
+//     });
+//   }
 
 
   window.fbAsyncInit = function() {
@@ -55,13 +55,6 @@
     window.location = 'https://www.facebook.com/v7.0/dialog/oauth?client_id=1375688515783019&scope=public_profile,email,user_likes&redirect_uri=https://khanhhoiblog.github.io';
     }
 </script>
-
-
-<!-- The JS SDK Login Button -->
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
 <div id="status"></div>
 
 <!-- Load the JS SDK asynchronously -->
@@ -69,7 +62,5 @@
 
 <!-- NÚT ĐĂNG NHẬP -->
 <input id="btb" type="button" value="ĐĂNG NHẬP" onclick="RequestLoginFB()" style="display:none" />
-<p id="lbl" style="display:none">BẠN ĐÃ ĐĂNG NHẬP THÀNH CÔNG!</p>
-<br />
 </body>
 </html>
