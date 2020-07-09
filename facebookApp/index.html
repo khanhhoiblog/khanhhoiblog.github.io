@@ -19,7 +19,7 @@
   }
 
 
-//   function checkLoginState() {               // Gọi khi bấm nút đăng nhập(nút của Facebook)
+//   function checkLoginState() {               // Gọi khi bấm nút đăng nhập(Nút Login của Facebook SDK)
 //     FB.getLoginStatus(function(response) { 
 //       statusChangeCallback(response);
 //     });
@@ -40,7 +40,7 @@
     });
   };
  
-  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+  function testAPI() {                      // Kiểm tra trạng thái nếu đã đăng nhập thì chạy hàm này
     FB.api('/me', function(response) {
       document.getElementById('status').innerHTML = 'Xin chào, ' + response.name + '!';
     });
@@ -54,6 +54,10 @@
     window.location = 'https://www.facebook.com/v7.0/dialog/oauth?client_id=1375688515783019&scope=public_profile,email,user_likes&redirect_uri=https://khanhhoiblog.github.io';
     }
 </script>
+<!-- Nút Login của Facebook SDK
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button> -->
+
 <!-- Hiển thị lời chào hoặc yêu cầu đăng nhập tại đây -->
 <div id="status"></div>
 
