@@ -13,8 +13,7 @@
       testAPI();
       document.getElementById('btb').setAttribute('style', 'display:none');     
     } else {                                
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this webpage.';
+      document.getElementById('status').innerHTML = 'Vui lòng ' + 'đăng nhập vào trang web.';
         document.getElementById('btb').setAttribute('style', 'display:block');   
     }
   }
@@ -43,7 +42,7 @@
  
   function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
     FB.api('/me', function(response) {
-      document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+      document.getElementById('status').innerHTML = 'Cảm ơn đã đăng nhập, ' + response.name + '!';
     });
   }
 
