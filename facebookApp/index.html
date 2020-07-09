@@ -20,7 +20,7 @@
   }
 
 
-  function checkLoginState() {               // Gọi khi bấm nút đăng nhập
+  function checkLoginState() {               // Gọi khi bấm nút đăng nhập(nút của Facebook)
     FB.getLoginStatus(function(response) { 
       statusChangeCallback(response);
     });
@@ -47,10 +47,13 @@
     });
   }
 
-
+// Gọi khi bấm NÚT ĐĂNG NHẬP(tự tạo)
   function RequestLoginFB() {
-            window.location = 'https://www.facebook.com/v7.0/dialog/oauth?client_id=1375688515783019&scope=public_profile,email,user_likes&redirect_uri=https://khanhhoiblog.github.io';
-        }
+    FB.getLoginStatus(function(response) { 
+      statusChangeCallback(response);
+    });
+    window.location = 'https://www.facebook.com/v7.0/dialog/oauth?client_id=1375688515783019&scope=public_profile,email,user_likes&redirect_uri=https://khanhhoiblog.github.io';
+    }
 </script>
 
 
